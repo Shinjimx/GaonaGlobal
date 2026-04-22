@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FG Gaona Consultoría Global | Cross-Border Consulting & Language Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: #ffd700;
+            color: #1a1a2e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,215,0,0.2);
+            border: 1px solid #ffd700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffd700;
+            margin: 10px auto 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c5364;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* About & Experience */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+        }
+
+        .about-text h3, .exp-text h3 {
+            color: #2c5364;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .exp-item h4 {
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .date {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .exp-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #ffd700;
+            color: #1a1a2e;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f2027;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.85rem;
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">FG <span>Gaona</span> Consultoría Global</div>
+            <div class="nav-links">
+                <a href="#" data-lang-link="services">Services</a>
+                <a href="#" data-lang-link="about">About</a>
+                <a href="#" data-lang-link="exp">Experience</a>
+                <a href="#" data-lang-link="contact">Contact</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="ja">JP</button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <!-- English Hero -->
+            <div class="lang-content active" data-lang-content="en">
+                <h1>Francisco Javier Rodriguez Gaona</h1>
+                <h2>Cross-Border Consulting | Language Services | Business Management</h2>
+                <div class="hero-badge">🌎 10+ years experience | 4 countries | 3 languages</div>
+            </div>
+            <!-- Spanish Hero -->
+            <div class="lang-content" data-lang-content="es">
+                <h1>Francisco Javier Rodríguez Gaona</h1>
+                <h2>Consultoría Transfronteriza | Servicios Lingüísticos | Gestión Empresarial</h2>
+                <div class="hero-badge">🌎 +10 años de experiencia | 4 países | 3 idiomas</div>
+            </div>
+            <!-- Russian Hero -->
+            <div class="lang-content" data-lang-content="ru">
+                <h1>Франсиско Хавьер Родригес Гаона</h1>
+                <h2>Трансграничный консалтинг | Языковые услуги | Бизнес-менеджмент</h2>
+                <div class="hero-badge">🌎 10+ лет опыта | 4 страны | 3 языка</div>
+            </div>
+            <!-- Japanese Hero -->
+            <div class="lang-content" data-lang-content="ja">
+                <h1>フランシスコ・ハビエル・ロドリゲス・ガオナ</h1>
+                <h2>クロスボーダーコンサルティング | 言語サービス | ビジネスマネジメント</h2>
+                <div class="hero-badge">🌎 10年以上の経験 | 4ヶ国 | 3言語</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Services Section -->
+        <section id="services">
+            <div class="lang-content active" data-lang-content="en">
+                <h2 class="section-title">What I Offer</h2>
+            </div>
+            <div class="lang-content" data-lang-content="es">
+                <h2 class="section-title">Lo Que Ofrezco</h2>
+            </div>
+            <div class="lang-content" data-lang-content="ru">
+                <h2 class="section-title">Что я предлагаю</h2>
+            </div>
+            <div class="lang-content" data-lang-content="ja">
+                <h2 class="section-title">提供するサービス</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Translation & Localization</h3><p>English ↔ Spanish ↔ Russian. Document translation, website localization, subtitling, and proofreading.</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Traducción y Localización</h3><p>Inglés ↔ Español ↔ Ruso. Traducción de documentos, localización web, subtitulado y corrección.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Перевод и локализация</h3><p>Английский ↔ Испанский ↔ Русский. Перевод документов, локализация сайтов, субтитры, корректура.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>翻訳・ローカライゼーション</h3><p>英語 ↔ スペイン語 ↔ ロシア語。書類翻訳、ウェブサイトのローカライズ、字幕作成、校正。</p></div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Language Teaching</h3><p>English, Spanish & Japanese. Exam prep (IELTS, DELE, JLPT), business language, conversation, or young learners.</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Enseñanza de Idiomas</h3><p>Inglés, Español y Japonés. Preparación de exámenes, idioma de negocios, conversación o niños.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Преподавание языков</h3><p>Английский, испанский и японский. Подготовка к экзаменам, деловой язык, разговорный, дети.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>語学教授</h3><p>英語・スペイン語・日本語。試験対策、ビジネス言語、会話、お子様向け。</p></div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Business Consulting</h3><p>Cross-border strategy, market entry (Latin America, Russia, Maldives), operations management, customer service optimization.</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Consultoría de Negocios</h3><p>Estrategia transfronteriza, entrada a mercados, gestión operativa, optimización de servicio al cliente.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Бизнес-консалтинг</h3><p>Трансграничная стратегия, выход на рынки, операционный менеджмент, оптимизация обслуживания.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>ビジネスコンサルティング</h3><p>クロスボーダー戦略、市場参入、オペレーション管理、カスタマーサービス最適化。</p></div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Customer Service & Sales</h3><p>Remote customer support, sales strategy, team training, client relations management. 15% revenue increase track record.</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Servicio al Cliente y Ventas</h3><p>Soporte remoto, estrategia de ventas, capacitación de equipos. Historial de +15% en ingresos.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Обслуживание клиентов и продажи</h3><p>Удаленная поддержка, стратегия продаж, обучение команд. Увеличение доходов на 15%.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>カスタマーサービス＆セールス</h3><p>リモートサポート、営業戦略、チームトレーニング。売上15%向上の実績。</p></div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">🏝️</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Tourism & Diving Consulting</h3><p>Dive center management, PADI instruction, tourism operations, resort consulting (Maldives & Mexico specialist).</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Consultoría en Turismo y Buceo</h3><p>Gestión de centros de buceo, instructor PADI, operaciones turísticas, consultoría en resorts.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Туристический и дайвинг-консалтинг</h3><p>Управление дайв-центром, инструктор PADI, туристические операции, консалтинг курортов.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>観光＆ダイビングコンサルティング</h3><p>ダイブセンター管理、PADIインストラクター、観光事業、リゾートコンサルティング。</p></div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="lang-content active" data-lang-content="en"><h3>Operations Management</h3><p>Daily operations, team coordination, invoicing, inventory management, quality control. 10+ years experience.</p></div>
+                    <div class="lang-content" data-lang-content="es"><h3>Gestión Operativa</h3><p>Operaciones diarias, coordinación de equipos, facturación, inventario, control de calidad.</p></div>
+                    <div class="lang-content" data-lang-content="ru"><h3>Операционный менеджмент</h3><p>Ежедневные операции, координация команды, выставление счетов, управление запасами.</p></div>
+                    <div class="lang-content" data-lang-content="ja"><h3>オペレーションマネジメント</h3><p>日々の運営、チーム調整、請求書発行、在庫管理、品質管理。</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="lang-content active" data-lang-content="en">
+                        <h3>👋 About Me</h3>
+                        <p>I'm Francisco, a Mexican professional with over 10 years of international experience across Mexico, the Maldives, and Russia. Currently pursuing a Master's degree in Russia, I bring a unique blend of language expertise, business management, and cross-cultural consulting.</p>
+                        <p>🌎 Fluent in Spanish, English, Russian, and Japanese (basic).<br>
+                        🎓 Certified TESOL/TEFL & TEYL instructor.<br>
+                        📈 Proven track record increasing revenue and optimizing operations.<br>
+                        🤝 I don't just translate words — I bridge cultures and businesses.</p>
+                    </div>
+                    <div class="lang-content" data-lang-content="es">
+                        <h3>👋 Sobre Mí</h3>
+                        <p>Soy Francisco, un profesional mexicano con más de 10 años de experiencia internacional en México, Maldivas y Rusia. Actualmente cursando una Maestría en Rusia, ofrezco una combinación única de experiencia lingüística, gestión empresarial y consultoría intercultural.</p>
+                        <p>🌎 Hablo español, inglés, ruso y japonés básico.<br>
+                        🎓 Instructor certificado TESOL/TEFL y TEYL.<br>
+                        📈 Historial comprobado aumentando ingresos y optimizando operaciones.<br>
+                        🤝 No solo traduzco palabras — conecto culturas y negocios.</p>
+                    </div>
+                    <div class="lang-content" data-lang-content="ru">
+                        <h3>👋 Обо мне</h3>
+                        <p>Я Франсиско, мексиканский профессионал с более чем 10-летним международным опытом в Мексике, на Мальдивах и в России. В настоящее время получаю степень магистра в России.</p>
+                        <p>🌎 Свободно говорю по-испански, английски, русски и базово по-японски.<br>
+                        🎓 Сертифицированный преподаватель TESOL/TEFL и TEYL.<br>
+                        📈 Доказанный рост доходов и оптимизация операций.<br>
+                        🤝 Я не просто перевожу слова — я соединяю культуры и бизнесы.</p>
+                    </div>
+                    <div class="lang-content" data-lang-content="ja">
+                        <h3>👋 私について</h3>
+                        <p>フランシスコです。メキシコ出身のプロフェッショナルで、メキシコ、モルディブ、ロシアで10年以上の国際経験があります。現在ロシアで修士号を取得中です。</p>
+                        <p>🌎 スペイン語、英語、ロシア語、日本語（初級）を話せます。<br>
+                        🎓 TESOL/TEFL & TEYL 認定インストラクター。<br>
+                        📈 収益向上と業務最適化の実績。<br>
+                        🤝 単なる翻訳ではなく、文化とビジネスをつなぎます。</p>
+                    </div>
+                </div>
+                <div class="exp-text">
+                    <div class="lang-content active" data-lang-content="en">
+                        <h3>🏆 Key Achievements</h3>
+                        <div class="exp-item"><h4>Revenue Growth</h4><p>Increased dive center revenue by 15% through strategic partnerships.</p></div>
+                        <div class="exp-item"><h4>Language Results</h4><p>Students achieve fluency in 3-4 months. IELTS 6.5-7.5, DELE B2, JLPT N5-N4.</p></div>
+                        <div class="exp-item"><h4>Global Experience</h4><p>Worked in 5-star resorts, international schools, and private consulting.</p></div>
+                    </div>
+                    <div class="lang-content" data-lang-content="es">
+                        <h3>🏆 Logros Clave</h3>
+                        <div class="exp-item"><h4>Crecimiento de Ingresos</h4><p>Aumenté ingresos del centro de buceo en 15% mediante alianzas estratégicas.</p></div>
+                        <div class="exp-item"><h4>Resultados en Idiomas</h4><p>Estudiantes logran fluidez en 3-4 meses. IELTS 6.5-7.5, DELE B2, JLPT N5-N4.</p></div>
+                        <div class="exp-item"><h4>Experiencia Global</h4><p>Trabajé en resorts 5 estrellas, escuelas internacionales y consultoría privada.</p></div>
+                    </div>
+                    <div class="lang-content" data-lang-content="ru">
+                        <h3>🏆 Ключевые достижения</h3>
+                        <div class="exp-item"><h4>Рост доходов</h4><p>Увеличил доход дайв-центра на 15% через стратегические партнерства.</p></div>
+                        <div class="exp-item"><h4>Языковые результаты</h4><p>Студенты достигают свободного владения за 3-4 месяца.</p></div>
+                        <div class="exp-item"><h4>Глобальный опыт</h4><p>Работал в 5-звездочных курортах, международных школах и частном консалтинге.</p></div>
+                    </div>
+                    <div class="lang-content" data-lang-content="ja">
+                        <h3>🏆 主な実績</h3>
+                        <div class="exp-item"><h4>収益成長</h4><p>戦略的パートナーシップによりダイブセンターの収益を15%増加。</p></div>
+                        <div class="exp-item"><h4>語学成果</h4><p>生徒は3-4ヶ月で流暢に。IELTS 6.5-7.5、DELE B2、JLPT N5-N4。</p></div>
+                        <div class="exp-item"><h4>グローバル経験</h4><p>5つ星リゾート、国際学校、個人コンサルティングでの勤務経験。</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="exp">
+            <div class="lang-content active" data-lang-content="en">
+                <h2 class="section-title">Professional Experience</h2>
+            </div>
+            <div class="lang-content" data-lang-content="es">
+                <h2 class="section-title">Experiencia Profesional</h2>
+            </div>
+            <div class="lang-content" data-lang-content="ru">
+                <h2 class="section-title">Профессиональный опыт</h2>
+            </div>
+            <div class="lang-content" data-lang-content="ja">
+                <h2 class="section-title">職歴</h2>
+            </div>
+
+            <div class="about-content" style="margin-top: 20px;">
+                <div>
+                    <div class="exp-item"><h4>📚 English & Spanish Teacher</h4><p>Top Class Language Center, Krasnodar (2025-Present)</p><p class="date">Private students: A2-B2, 4.9-5.0 feedback</p></div>
+                    <div class="exp-item"><h4>🏫 English Teacher (Young Learners)</h4><p>Solnechny Kindergarten, Krasnodar (2024-2025)</p></div>
+                    <div class="exp-item"><h4>🏝️ Dive Center Manager</h4><p>Kashalot Dive Center, Russia (2024-2025)</p><p class="date">+15% revenue growth</p></div>
+                    <div class="exp-item"><h4>🤿 PADI Instructor / Resort Guide</h4><p>Paradise Island, Maldives (2022-2023)</p></div>
+                </div>
+                <div>
+                    <div class="exp-item"><h4>🌊 Dive Manager / Instructor</h4><p>Silversands Maldives (2018-2020)</p></div>
+                    <div class="exp-item"><h4>🐠 PADI Instructor</h4><p>Ocean Group Maldives (2015-2017)</p></div>
+                    <div class="exp-item"><h4>🏊 Dive Instructor / Sales</h4><p>Aquaworld, Cancún, Mexico (2012-2015)</p></div>
+                    <div class="exp-item"><h4>🇯🇵 Japanese Teacher</h4><p>Herrera Language School, Mexico (2012-2013)</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" style="border-radius: 20px; margin: 40px 0;">
+            <div class="container">
+                <div class="lang-content active" data-lang-content="en">
+                    <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+                    <p>Available for freelance projects, consulting, and online teaching.</p>
+                </div>
+                <div class="lang-content" data-lang-content="es">
+                    <h2 class="section-title" style="color: white;">Trabajemos Juntos</h2>
+                    <p>Disponible para proyectos freelance, consultoría y enseñanza online.</p>
+                </div>
+                <div class="lang-content" data-lang-content="ru">
+                    <h2 class="section-title" style="color: white;">Давайте работать вместе</h2>
+                    <p>Доступен для фриланс-проектов, консалтинга и онлайн-обучения.</p>
+                </div>
+                <div class="lang-content" data-lang-content="ja">
+                    <h2 class="section-title" style="color: white;">一緒に仕事をしましょう</h2>
+                    <p>フリーランスプロジェクト、コンサルティング、オンライン指導に対応。</p>
+                </div>
+
+                <div class="contact-info">
+                    <a href="mailto:rodriguezgaona@mail.ru" class="contact-item">📧 rodriguezgaona@mail.ru</a>
+                    <a href="tel:+79280399668" class="contact-item">📞 +7 (928) 039-9668</a>
+                </div>
+
+                <div class="lang-content active" data-lang-content="en">
+                    <a href="#" class="btn">📩 Request a Quote</a>
+                </div>
+                <div class="lang-content" data-lang-content="es">
+                    <a href="#" class="btn">📩 Solicitar Presupuesto</a>
+                </div>
+                <div class="lang-content" data-lang-content="ru">
+                    <a href="#" class="btn">📩 Запросить цену</a>
+                </div>
+                <div class="lang-content" data-lang-content="ja">
+                    <a href="#" class="btn">📩 見積もり依頼</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="lang-content active" data-lang-content="en">
+            <p>© 2025 FG Gaona Consultoría Global. All rights reserved. | Cross-Border Consulting & Language Services</p>
+        </div>
+        <div class="lang-content" data-lang-content="es">
+            <p>© 2025 FG Gaona Consultoría Global. Todos los derechos reservados. | Consultoría Transfronteriza y Servicios Lingüísticos</p>
+        </div>
+        <div class="lang-content" data-lang-content="ru">
+            <p>© 2025 FG Gaona Consultoría Global. Все права защищены. | Трансграничный консалтинг и языковые услуги</p>
+        </div>
+        <div class="lang-content" data-lang-content="ja">
+            <p>© 2025 FG Gaona Consultoría Global. 全著作権所有。 | クロスボーダーコンサルティング＆ランゲージサービス</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Language switching functionality
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const langContents = document.querySelectorAll('[data-lang-content]');
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.getAttribute('data-lang');
+            
+            // Update active button
+            langButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Update content visibility
+            langContents.forEach(content => {
+                if (content.getAttribute('data-lang-content') === lang) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-lang-link');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
